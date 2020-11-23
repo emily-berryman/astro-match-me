@@ -14,7 +14,6 @@ Once your database has been populated, you can now use this shortcut:
 
 ```
 npm run db-reset 
-
 ```
 
 (this does both run migrations and run seed)
