@@ -1,33 +1,34 @@
-# ASTRO MATCH ME 
-### Find your boo! Compatibilty for robots
+### ASTRO MATCH ME 
+Find your boo! Compatibilty for robots
 
-### Notes from Hortense:
+# Notes from Hortense:
 
 Everytime you clone down the Master you need to 
+```
+npm i
+npm run knex migrate:latest
+npm run knex seed:run
+```
 
-*npm i
+Once your database has been populated, you can now use this shortcut:
 
-*"npm run knex migrate:latest
-*"npm run knex seed:run
+```
+npm run db-reset 
 
-### once your database has been populates, you can now use this shortcut:
+```
 
-*npm run db-reset (this does both run migrations and run seed)
+(this does both run migrations and run seed)
 
+If you want a fast way to add, commit and push to your branch use this command (enter your own commit message)
 
-### If you want a fast way to add, commit and push to your branch use this command (enter your own commit message)
-
+```
 make pushbranch m="initial commit"
+```
 
+# Notes from Dev Academy:
 
-
-### Notes from Dev Academy:
-
-
-# Fullstack boilerplate
-
-## Getting Started
-
+### Fullstack boilerplate
+### Getting Started
 ### From the Github UI
 See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
 
