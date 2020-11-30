@@ -16,7 +16,8 @@ const Nav = (props) => {
     <>
       <IfAuthenticated>
         <Link to='/home'>Home</Link>
-        <Link to='/sign-in' onClick={() => logOutUser(props.dispatch)}>Log off</Link>
+        <Link to='/' onClick={() => logOutUser(props.dispatch)}>Log off</Link>
+        
       </IfAuthenticated>
       <IfNotAuthenticated>
         <Link to='/sign-in'>Sign in</Link>

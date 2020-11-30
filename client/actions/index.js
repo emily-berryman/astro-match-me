@@ -1,8 +1,10 @@
 import request from 'superagent'
-import { addProfile, getProfile } from '../apis/profiles'
+
+import { addProfileToDb } from '../apis/profiles'
 
 export const GET_USERS = 'GET_USERS'
 export const SET_LOADED = 'SET_LOADED'
+export const SAVE_PROFILE = 'SAVE_PROFILE'
 
 export const setLoaded = () => {
   return {
@@ -14,6 +16,14 @@ export const getUsers = (users) => {
   return {
     type: GET_USERS,
     users
+  }
+}
+
+
+export function saveProfileToRedux (profile) {
+  return {
+    type: SAVE_PROFILE,
+    profile
   }
 }
 
@@ -29,45 +39,12 @@ export function fetchUsers () {
   }
 }
 
-export const GET_ROBOT = 'GET_ROBOT'
-export const RETURN_MATCHES = 'RETURN_MATCHES'
-
-export const getRobot = (name) => {
-  return {
-    type: GET_ROBOT,
-    imgUrl: `https://robohash.org/${name}.png`
-
-  }
-}
-
-export const ADD_PERSON = 'ADD_PERSON'
-export const addPerson = (name, sign) => {
-  return {
-    type: ADD_PERSON,
-    person: {
-      name: name,
-      sign: sign,
-    }
-  }
-}
-
-export function addUser (user) {
+export function addProfileToDbAndRedux (profile) {
   return (dispatch) => {
-    return addProfile(user)
-    .then(res => {
-        dispatch(addPerson(user.name, user.sign))
-        dispatch(getRobot(user.name))
-      })
-  }
-}
-
- 
-export function loggedInUser (user) {
-  const logUser = this.props.users.filter(user => user.user_id == this.props.auth.user.id)[0]
-  return (dispatch) => {
-    return logUser()
+    return addProfileToDb(profile)
       .then(res => {
-        dispatch()
+        dispatch(saveProfileToRedux(profile))
       })
+      .catch(err => console.log(err))
   }
 }

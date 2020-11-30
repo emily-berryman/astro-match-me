@@ -1,11 +1,11 @@
-import { RETURN_MATCHES } from '../actions'
+import { SAVE_PROFILE } from '../actions/index'
 
-const initialState = ['aries']
+const initialState = null
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case RETURN_MATCHES:
-      return action.matches
+    case SAVE_PROFILE:
+      return action.profile
     default:
       return state
   }

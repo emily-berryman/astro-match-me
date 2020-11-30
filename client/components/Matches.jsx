@@ -18,7 +18,7 @@ function Matches (props) {
     <div className = 'profile-wrapper'>
       {matchedProfiles.map(profile => {
         return (
-          <Profile person={profile}/>
+          <Profile key={profile.id} person={profile}/>
         )
       })}
     </div >

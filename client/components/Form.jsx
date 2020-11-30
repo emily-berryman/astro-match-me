@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { addUser } from '../actions'
+import { addProfileToDbAndRedux } from '../actions'
 
 class Form extends React.Component {
   state = {
@@ -17,14 +17,12 @@ class Form extends React.Component {
 
   submitHandler = (e) => {
     e.preventDefault()
-    this.props.dispatch(addUser({
+    this.props.dispatch(addProfileToDbAndRedux({
       name: this.state.name,
       sign: this.state.sign,
     }))
-    this.setState({
-      name: '',
-      sign: ''
-    })
+    this.props.history.push('/home')
+    // .catch(err => alert(err.message))
   }
 
   render () {
