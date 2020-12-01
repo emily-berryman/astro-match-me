@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  // BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import Header from './Header.jsx'
 // import Search from './Search.jsx'

@@ -22,20 +22,21 @@ export function addProfileToDb (profile) {
     .catch(logError)
 }
 
-export function updateProfile () {
-  return request.put(rootUrl)
+// export function updateProfile () {
+//   return request.put(rootUrl)
+//     .set(acceptJsonHeader)
+//     .set(getAuthorizationHeader())
+//     .send(profile)
+//     .then(res => res.body.profile)
+//     .catch(logError)
+// }
+
+export function deleteProfileAPI (profile) {
+  return request.delete(rootUrl)
     .set(acceptJsonHeader)
     .set(getAuthorizationHeader())
     .send(profile)
-    .then(res => res.body.profile)
-    .catch(logError)
-}
-
-export function deleteProfile (id) {
-  return request.delete(`${rootUrl}/${id}`)
-    .set(acceptJsonHeader)
-    .set(getAuthorizationHeader())
-    .then(res => res.body.profile)
+    .then(res => res.body.profiles)
     .catch(logError)
 }
 

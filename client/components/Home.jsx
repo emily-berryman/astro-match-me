@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { saveProfileToRedux } from '../actions/index.js'
+import { removeProfileFromDbAndRedux, saveProfileToRedux } from '../actions/index.js'
 
 import Matches from './Matches.jsx'
 import Profile from './Profile.jsx'
@@ -28,6 +28,10 @@ class Home extends React.Component {
   //   })
   // }
 
+  deleteHandler = () => {
+    this.props.dispatch(removeProfileFromDbAndRedux(this.props.profile))
+  }
+
   render () {
 
     const loggedInUser = this.props.profile
@@ -36,8 +40,8 @@ class Home extends React.Component {
       this.props.profile && (
       <>
         <Profile person={loggedInUser} />
-        <button onClick ={(e) => this.submitHandler(e)} className='text-btn' type="submit"> Update </button>
-        <button onClick ={(e) => this.submitHandler(e)} className='text-btn' type="submit"> Delete </button>
+        <button onClick ={() => this.submitHandler()} className='text-btn' type="submit"> Update </button>
+        <button onClick ={() => this.deleteHandler()} className='text-btn' type="submit"> Delete </button>
         <Matches person={loggedInUser} />
       </>
       )

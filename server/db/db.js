@@ -8,7 +8,12 @@ function addProfile (person, db = connection) {
   return db('profiles').insert(person)
 }
 
+function deleteProfile (id, db = connection) {
+  return db('profiles').where('id', id ).delete()
+}
+
 module.exports = {
   getProfiles,
-  addProfile
+  addProfile,
+  deleteProfile
 }

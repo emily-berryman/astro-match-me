@@ -5,10 +5,12 @@ import { logOff } from 'authenticare/client'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 import { logOut } from '../actions/auth'
+import { clearProfileFromRedux } from '../actions'
 
 const logOutUser = (dispatch) => {
   logOff()
   dispatch(logOut())
+  dispatch(clearProfileFromRedux())
 }
 
 const Nav = (props) => {
