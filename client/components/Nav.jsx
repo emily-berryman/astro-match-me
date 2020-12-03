@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { logOff } from 'authenticare/client'
+// import { logOff } from 'authenticare/client'
 
-import { IfAuthenticated, IfNotAuthenticated } from './Auth'
+// import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
 // const NavGroup = styled.nav`
 //   float: right;
